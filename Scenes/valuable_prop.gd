@@ -2,11 +2,8 @@ extends RigidBody2D
 
 @export var value: int = 100
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func damage_prop(damage_value: int) -> void:
+	value -= damage_value
+	if value <= 0:
+		print("valuable destroyed")
+		queue_free()

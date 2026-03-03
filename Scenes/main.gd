@@ -1,11 +1,14 @@
 extends Node2D
+@onready var crosshair: Sprite2D = $Crosshair
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	# hide the mouse cursor on gmae load
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	var mouse_pos = get_global_mouse_position()
+	crosshair.global_position = mouse_pos

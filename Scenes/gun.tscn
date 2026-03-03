@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://b6ijcg47oepwi"]
+
+[ext_resource type="Script" uid="uid://g1v74nviqq3" path="res://Scenes/gun.gd" id="1_0ym6k"]
+[ext_resource type="Texture2D" uid="uid://soqp1ktvu4u4" path="res://Assets/shotgun.png" id="1_u0ide"]
+[ext_resource type="Texture2D" uid="uid://b1ptnbt614d3b" path="res://Assets/shotgun_shell.png" id="3_t6ynv"]
+
+[sub_resource type="Animation" id="Animation_t6ynv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_k4teu"]
+resource_name = "fire"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.16666667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(16, 0), Vector2(10, 0), Vector2(18, 0), Vector2(16, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ft2q4"]
+_data = {
+&"RESET": SubResource("Animation_t6ynv"),
+&"fire": SubResource("Animation_k4teu")
+}
+
+[node name="Gun" type="Node2D" unique_id=1036185233]
+script = ExtResource("1_0ym6k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=415800735]
+position = Vector2(16, 0)
+texture = ExtResource("1_u0ide")
+flip_h = true
+
+[node name="BulletSpawnPoint" type="Marker2D" parent="." unique_id=1834978714]
+position = Vector2(24, 0)
+
+[node name="CasingParticles" type="CPUParticles2D" parent="." unique_id=245760806]
+position = Vector2(16, 0)
+emitting = false
+amount = 1
+texture = ExtResource("3_t6ynv")
+lifetime = 0.25
+one_shot = true
+speed_scale = 0.75
+randomness = 0.19
+initial_velocity_min = 23.12
+initial_velocity_max = 88.45
+angle_min = -124.9
+angle_max = 324.6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1235145037]
+libraries/ = SubResource("AnimationLibrary_ft2q4")

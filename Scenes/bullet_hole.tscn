@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://wy1mh47eblcx"]
+
+[ext_resource type="Texture2D" uid="uid://bc33700n8guqo" path="res://Assets/bullet_hole.png" id="1_wlbyj"]
+
+[node name="BulletHole" type="Sprite2D" unique_id=1285509488]
+texture = ExtResource("1_wlbyj")
