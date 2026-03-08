@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://dmptplkq1ts21"]
+
+[ext_resource type="Script" uid="uid://cp7rnpguljs7u" path="res://Scenes/floating_text.gd" id="1_kfvxn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f3tku"]
+font_size = 8
+font_color = Color(0.9544582, 2.117753e-06, 9.62615e-07, 1)
+
+[sub_resource type="Animation" id="Animation_kfvxn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_f3tku"]
+resource_name = "float_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -25)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rsmp3"]
+_data = {
+&"RESET": SubResource("Animation_kfvxn"),
+&"float_up": SubResource("Animation_f3tku")
+}
+
+[node name="FloatingText" type="Node2D" unique_id=478269368]
+script = ExtResource("1_kfvxn")
+
+[node name="Label2D" type="Label" parent="." unique_id=336425968]
+offset_right = 42.0
+offset_bottom = 23.0
+text = "-$100"
+label_settings = SubResource("LabelSettings_f3tku")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=252846837]
+root_node = NodePath("../Label2D")
+libraries/ = SubResource("AnimationLibrary_rsmp3")
+autoplay = &"float_up"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="Label2D" method="_on_animation_player_animation_finished"]

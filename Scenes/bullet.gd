@@ -4,9 +4,11 @@ extends RigidBody2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 var bullet_hole_scene = preload("res://Scenes/bullet_hole.tscn")
+var bullet_hit_scene = preload("res://Scenes/bullet_hit_effect.tscn")
+@onready var bullet_hit_sound_player: AudioStreamPlayer2D = $BulletHitSoundPlayer
 
 var direction := Vector2.ZERO
-var BULLET_SPEED = 250.0
+var BULLET_SPEED = 500.0
 var BULLET_POWER = 1000.00
 var BULLET_DAMAGE = 20
 
@@ -28,6 +30,8 @@ func _physics_process(delta: float) -> void:
 		if body.has_method("get_collision_layer_value"):
 			if body.get_collision_layer_value(3):
 				print("hit valuable")
+				_spawn_bullet_hit()
+				bullet_hit_sound_player.playing = true
 				body.apply_impulse(direction * BULLET_POWER)
 				body.apply_torque_impulse(BULLET_POWER)
 				body.damage_prop(BULLET_DAMAGE)
@@ -40,3 +44,8 @@ func _spawn_bullet_hole():
 	var bullet_hole = bullet_hole_scene.instantiate()
 	bullet_hole.global_position = global_position
 	get_tree().current_scene.add_child(bullet_hole)
+	
+func _spawn_bullet_hit():
+	var bullet_hit = bullet_hit_scene.instantiate()
+	bullet_hit.global_position = global_position
+	get_tree().current_scene.add_child(bullet_hit)

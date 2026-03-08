@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dtp54afif1bb4" path="res://Scenes/valuable_prop.gd" id="1_r6hdh"]
 [ext_resource type="Texture2D" uid="uid://chq6lnjn2t8re" path="res://Assets/plant_pot.png" id="1_xy2hg"]
+[ext_resource type="PackedScene" uid="uid://d0b6pqcqfbdr" path="res://Scenes/floating_text_emitter.tscn" id="3_k746f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r6hdh"]
 atlas = ExtResource("1_xy2hg")
@@ -33,3 +34,5 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=148738977]
 shape = SubResource("CircleShape2D_xy2hg")
+
+[node name="FloatingTextEmitter" parent="." unique_id=1730230013 instance=ExtResource("3_k746f")]

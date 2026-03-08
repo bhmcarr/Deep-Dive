@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d0b6pqcqfbdr"]
+
+[ext_resource type="Script" uid="uid://cytu7h3idmm6o" path="res://Scenes/floating_text_emitter.gd" id="1_psrkj"]
+
+[node name="FloatingTextEmitter" type="Node2D" unique_id=1730230013]
+script = ExtResource("1_psrkj")

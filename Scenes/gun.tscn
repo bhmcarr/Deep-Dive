@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://g1v74nviqq3" path="res://Scenes/gun.gd" id="1_0ym6k"]
 [ext_resource type="Texture2D" uid="uid://soqp1ktvu4u4" path="res://Assets/shotgun.png" id="1_u0ide"]
 [ext_resource type="Texture2D" uid="uid://b1ptnbt614d3b" path="res://Assets/shotgun_shell.png" id="3_t6ynv"]
+[ext_resource type="Texture2D" uid="uid://frgkutx38fxh" path="res://Assets/shotgun_muzzle_flare.png" id="4_k4teu"]
+[ext_resource type="AudioStream" uid="uid://cmnv6k3al5ucw" path="res://Assets/gunshot_10.wav" id="5_ft2q4"]
 
 [sub_resource type="Animation" id="Animation_t6ynv"]
 length = 0.001
@@ -41,12 +43,21 @@ _data = {
 &"fire": SubResource("Animation_k4teu")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ft2q4"]
+radius = 4.0
+
 [node name="Gun" type="Node2D" unique_id=1036185233]
 script = ExtResource("1_0ym6k")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=415800735]
 position = Vector2(16, 0)
 texture = ExtResource("1_u0ide")
+flip_h = true
+
+[node name="MuzzleFlare" type="Sprite2D" parent="Sprite2D" unique_id=386456326]
+visible = false
+position = Vector2(16, -2)
+texture = ExtResource("4_k4teu")
 flip_h = true
 
 [node name="BulletSpawnPoint" type="Marker2D" parent="." unique_id=1834978714]
@@ -68,3 +79,23 @@ angle_max = 324.6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1235145037]
 libraries/ = SubResource("AnimationLibrary_ft2q4")
+
+[node name="MuzzleFlash" type="Sprite2D" parent="." unique_id=1679429881]
+
+[node name="DelayTimer" type="Timer" parent="." unique_id=2082703381]
+one_shot = true
+
+[node name="GunSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=585076669]
+stream = ExtResource("5_ft2q4")
+volume_db = 8.715
+pitch_scale = 0.75
+
+[node name="MeleeHitbox" type="Area2D" parent="." unique_id=182351211]
+collision_layer = 0
+collision_mask = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeHitbox" unique_id=409902660]
+position = Vector2(24, 0)
+shape = SubResource("CircleShape2D_ft2q4")
+
+[connection signal="body_entered" from="MeleeHitbox" to="." method="_on_melee_hitbox_body_entered"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drihw1iyd0d0j" path="res://Scenes/bullet.gd" id="1_xjght"]
 [ext_resource type="Texture2D" uid="uid://ddkfyh4uch28f" path="res://Assets/shotgun_slug.png" id="2_oduel"]
+[ext_resource type="AudioStream" uid="uid://dxrcu5b75h4ux" path="res://Assets/metal10.wav" id="3_ycag2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oduel"]
 radius = 2.0
@@ -19,3 +20,6 @@ texture = ExtResource("2_oduel")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1910795013]
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_oduel")
+
+[node name="BulletHitSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=657310869]
+stream = ExtResource("3_ycag2")
