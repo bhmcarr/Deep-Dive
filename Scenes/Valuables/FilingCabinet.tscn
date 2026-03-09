@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cj57mn6h0ih3"]
+
+[ext_resource type="Script" uid="uid://dtp54afif1bb4" path="res://Scenes/Valuables/valuable_prop.gd" id="1_s1gjo"]
+[ext_resource type="Texture2D" uid="uid://2am64h846751" path="res://Assets/filing_cabinet.png" id="2_sudvq"]
+[ext_resource type="PackedScene" uid="uid://dachmv6iwxqfi" path="res://Scenes/Valuables/valuable_handler.tscn" id="3_sudvq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1gjo"]
+size = Vector2(16, 28)
+
+[node name="FilingCabinet" type="RigidBody2D" unique_id=774324811]
+script = ExtResource("1_s1gjo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=920581634]
+texture = ExtResource("2_sudvq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=881954000]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_s1gjo")
+
+[node name="ValuableHandler" parent="." unique_id=447044991 instance=ExtResource("3_sudvq")]
+value = 500
+mass = 100.0

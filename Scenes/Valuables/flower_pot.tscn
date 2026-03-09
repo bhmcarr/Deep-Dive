@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bn74ns3m2upl5"]
+
+[ext_resource type="Script" uid="uid://dtp54afif1bb4" path="res://Scenes/Valuables/valuable_prop.gd" id="1_r6hdh"]
+[ext_resource type="Texture2D" uid="uid://chq6lnjn2t8re" path="res://Assets/plant_pot.png" id="1_xy2hg"]
+[ext_resource type="PackedScene" uid="uid://dachmv6iwxqfi" path="res://Scenes/Valuables/valuable_handler.tscn" id="3_3v2ul"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xy2hg"]
+radius = 7.0
+
+[node name="FlowerPot" type="RigidBody2D" unique_id=528332941]
+collision_layer = 4
+collision_mask = 3
+gravity_scale = 0.0
+script = ExtResource("1_r6hdh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=379669771]
+texture = ExtResource("1_xy2hg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=148738977]
+shape = SubResource("CircleShape2D_xy2hg")
+
+[node name="ValuableHandler" parent="." unique_id=447044991 instance=ExtResource("3_3v2ul")]
+value = 50

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://kmnbgrn06x2p"]
+
+[ext_resource type="Script" uid="uid://dtp54afif1bb4" path="res://Scenes/Valuables/valuable_prop.gd" id="1_odae8"]
+[ext_resource type="Texture2D" uid="uid://dnrh65looqqam" path="res://Assets/desk.png" id="2_dwkq0"]
+[ext_resource type="PackedScene" uid="uid://dachmv6iwxqfi" path="res://Scenes/Valuables/valuable_handler.tscn" id="3_4jd11"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wm7i"]
+size = Vector2(32, 16)
+
+[node name="Desk" type="RigidBody2D" unique_id=568491742]
+script = ExtResource("1_odae8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1855106866]
+texture = ExtResource("2_dwkq0")
+
+[node name="ValuableHandler" parent="." unique_id=447044991 instance=ExtResource("3_4jd11")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=40111588]
+shape = SubResource("RectangleShape2D_8wm7i")

@@ -62,4 +62,5 @@ func _on_melee_hitbox_body_entered(body: Node2D) -> void:
 	if body.get_collision_layer_value(3) || body.get_collision_layer_value(5):
 		body.apply_impulse((get_global_mouse_position() - position).normalized() * MELEE_POWER)
 		body.apply_torque_impulse(MELEE_POWER)
-		body.damage_prop(MELEE_DAMAGE)
+		if body.has_node("Valuable"):
+			body.get_node("Valuable").damage_prop(MELEE_DAMAGE)

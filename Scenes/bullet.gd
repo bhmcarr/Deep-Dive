@@ -34,7 +34,8 @@ func _physics_process(delta: float) -> void:
 				bullet_hit_sound_player.playing = true
 				body.apply_impulse(direction * BULLET_POWER)
 				body.apply_torque_impulse(BULLET_POWER)
-				body.damage_prop(BULLET_DAMAGE)
+				if body.has_node("ValuableHandler"):
+					body.get_node("ValuableHandler").damage_valuable(BULLET_DAMAGE)
 		else:
 			_spawn_bullet_hole()
 		

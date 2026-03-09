@@ -4,12 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://c7ucpwliamnki" path="res://Assets/bg_tiles.png" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://dcwafm3cxcwr5" path="res://Assets/wall_tiles.png" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://c1xh4s8k5l3js" path="res://Scenes/player.tscn" id="4_jjvhh"]
-[ext_resource type="PackedScene" uid="uid://bn74ns3m2upl5" path="res://Scenes/valuable_prop.tscn" id="5_kry3j"]
-[ext_resource type="Texture2D" uid="uid://2am64h846751" path="res://Assets/filing_cabinet.png" id="6_344ge"]
-[ext_resource type="Texture2D" uid="uid://chq6lnjn2t8re" path="res://Assets/plant_pot.png" id="7_ynf5e"]
-[ext_resource type="Texture2D" uid="uid://jwmr1ubhcmuo" path="res://Assets/end_table.png" id="8_hptm8"]
+[ext_resource type="PackedScene" uid="uid://bn74ns3m2upl5" path="res://Scenes/Valuables/flower_pot.tscn" id="5_kry3j"]
+[ext_resource type="PackedScene" uid="uid://bysxc7u2jj6xa" path="res://Scenes/Valuables/EndTable.tscn" id="8_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://x58w1f1ppua3" path="res://Scenes/main_camera.tscn" id="9_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://kmnbgrn06x2p" path="res://Scenes/Valuables/Desk.tscn" id="10_6iyac"]
+[ext_resource type="PackedScene" uid="uid://cj57mn6h0ih3" path="res://Scenes/Valuables/FilingCabinet.tscn" id="10_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://m4xuya24ttsj" path="res://Assets/crosshair.png" id="10_hptm8"]
+[ext_resource type="PackedScene" uid="uid://3xbxkdap55x8" path="res://Scenes/Valuables/Monitor.tscn" id="11_d1ilt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jjvhh"]
 texture = ExtResource("1_bo1nx")
@@ -41,8 +42,6 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_21xkr")
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kry3j"]
-
 [node name="Main" type="Node2D" unique_id=1052326228]
 script = ExtResource("1_8gbba")
 
@@ -64,61 +63,36 @@ position = Vector2(312, 209)
 
 [node name="MainCamera" parent="." unique_id=146734760 instance=ExtResource("9_ynf5e")]
 
-[node name="ValuableProp" parent="." unique_id=528332941 instance=ExtResource("5_kry3j")]
-position = Vector2(286, 198)
-mass = 10.0
-physics_material_override = SubResource("PhysicsMaterial_kry3j")
-
-[node name="ValuableProp2" parent="." unique_id=1078672186 instance=ExtResource("5_kry3j")]
-position = Vector2(259, 198)
-mass = 10.0
-physics_material_override = SubResource("PhysicsMaterial_kry3j")
-
-[node name="ValuableProp3" parent="." unique_id=34404351 instance=ExtResource("5_kry3j")]
-position = Vector2(261, 175)
-mass = 10.0
-physics_material_override = SubResource("PhysicsMaterial_kry3j")
-
-[node name="ValuableProp4" parent="." unique_id=2066550585 instance=ExtResource("5_kry3j")]
-position = Vector2(280, 173)
-mass = 10.0
-physics_material_override = SubResource("PhysicsMaterial_kry3j")
-
-[node name="ValuableProp5" parent="." unique_id=388813821 instance=ExtResource("5_kry3j")]
-position = Vector2(264, 224)
-mass = 10.0
-physics_material_override = SubResource("PhysicsMaterial_kry3j")
-
-[node name="ValuableProp6" parent="." unique_id=1644345949 instance=ExtResource("5_kry3j")]
-position = Vector2(299, 231)
-mass = 10.0
-physics_material_override = SubResource("PhysicsMaterial_kry3j")
-
-[node name="ValuableProp7" parent="." unique_id=461369093 instance=ExtResource("5_kry3j")]
-position = Vector2(326, 231)
-mass = 10.0
-physics_material_override = SubResource("PhysicsMaterial_kry3j")
-
-[node name="FilingCabinet" type="Sprite2D" parent="." unique_id=568607925]
-position = Vector2(212, 119)
-texture = ExtResource("6_344ge")
-
-[node name="FilingCabinet2" type="Sprite2D" parent="." unique_id=1873066077]
-position = Vector2(350, 119)
-texture = ExtResource("6_344ge")
-
-[node name="PlantPot" type="Sprite2D" parent="." unique_id=302715237]
-position = Vector2(212, 103)
-texture = ExtResource("7_ynf5e")
-
-[node name="EndTable" type="Sprite2D" parent="." unique_id=1093043974]
-position = Vector2(281, 129)
-texture = ExtResource("8_hptm8")
-
-[node name="PlantPot2" type="Sprite2D" parent="." unique_id=1301322481]
-position = Vector2(281, 117)
-texture = ExtResource("7_ynf5e")
-
 [node name="Crosshair" type="Sprite2D" parent="." unique_id=881751003]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("10_hptm8")
+
+[node name="FilingCabinet3" parent="." unique_id=774324811 instance=ExtResource("10_d1ilt")]
+position = Vector2(212, 125)
+
+[node name="FilingCabinet4" parent="." unique_id=994260164 instance=ExtResource("10_d1ilt")]
+position = Vector2(350, 126)
+
+[node name="EndTable" parent="." unique_id=1126132356 instance=ExtResource("8_ynf5e")]
+position = Vector2(282, 132)
+
+[node name="FlowerPot" parent="." unique_id=528332941 instance=ExtResource("5_kry3j")]
+position = Vector2(282, 120)
+
+[node name="Desk" parent="." unique_id=568491742 instance=ExtResource("10_6iyac")]
+position = Vector2(243, 170)
+
+[node name="Desk2" parent="." unique_id=2117028091 instance=ExtResource("10_6iyac")]
+position = Vector2(338, 171)
+
+[node name="Desk3" parent="." unique_id=177969422 instance=ExtResource("10_6iyac")]
+position = Vector2(241, 219)
+
+[node name="Monitor" parent="." unique_id=433526033 instance=ExtResource("11_d1ilt")]
+position = Vector2(238, 159)
+
+[node name="Monitor2" parent="." unique_id=216183377 instance=ExtResource("11_d1ilt")]
+position = Vector2(332, 160)
+
+[node name="Monitor3" parent="." unique_id=144571261 instance=ExtResource("11_d1ilt")]
+position = Vector2(234, 208)
