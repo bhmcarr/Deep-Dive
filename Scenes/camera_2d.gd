@@ -16,7 +16,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	position = player.position
+	position = position.lerp(player.position, delta * 100)
 	
 	# Fade out the intensity over time
 	shake_strength = lerp(shake_strength, 0.0, SHAKE_DECAY_RATE * delta)

@@ -19,4 +19,5 @@ shape = SubResource("RectangleShape2D_s1gjo")
 
 [node name="ValuableHandler" parent="." unique_id=447044991 instance=ExtResource("3_sudvq")]
 value = 500
-mass = 100.0
+mass = 1000.0
+keep_upright = true

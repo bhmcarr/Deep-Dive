@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://d0b6pqcqfbdr" path="res://Scenes/floating_text_emitter.tscn" id="2_2f5j2"]
 [ext_resource type="Texture2D" uid="uid://bhxht2sr6mvel" path="res://Assets/valuable_shard.png" id="3_sxl6t"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_j1iue"]
+
 [node name="ValuableHandler" type="Node2D" unique_id=447044991]
 script = ExtResource("1_j1iue")
 
@@ -27,5 +29,12 @@ angular_velocity_min = -33.29
 angular_velocity_max = 241.39
 scale_amount_min = 0.25
 scale_amount_max = 0.5
+
+[node name="NearbyValuableHitbox" type="Area2D" parent="." unique_id=1623883445]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NearbyValuableHitbox" unique_id=1350761012]
+shape = SubResource("CircleShape2D_j1iue")
 
 [connection signal="finished" from="BreakParticles" to="." method="_on_break_particles_finished"]

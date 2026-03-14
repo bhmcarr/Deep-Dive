@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 				body.apply_impulse(direction * BULLET_POWER)
 				body.apply_torque_impulse(BULLET_POWER)
 				if body.has_node("ValuableHandler"):
-					body.get_node("ValuableHandler").damage_valuable(BULLET_DAMAGE)
+					body.get_node("ValuableHandler").damage_valuable(BULLET_DAMAGE, direction, BULLET_POWER)
 		else:
 			_spawn_bullet_hole()
 		

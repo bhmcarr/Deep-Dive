@@ -5,6 +5,7 @@ extends CharacterBody2D
 const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
 var direction: Vector2 = Vector2.ZERO
+var push_force = 5.0
 
 func _physics_process(delta: float) -> void:
 	direction.x = Input.get_axis("move_left", "move_right")
@@ -14,6 +15,12 @@ func _physics_process(delta: float) -> void:
 
 	_handle_animations()
 	move_and_slide()
+	
+	# TODO: This doesn't seem to work like I thought..
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 	
 func _handle_animations() -> void:
 	if direction.x != 0 || direction.y != 0:

@@ -34,8 +34,8 @@ func _process(delta: float) -> void:
 		sprite_2d.flip_v = false
 		
 	if Input.is_action_just_pressed("shoot") && delay_timer.is_stopped():
-		_shoot(mouse_pos) # pass in normalized direction from mouse position
-	
+		#_shoot(mouse_pos) # pass in normalized direction from mouse position
+		_shoot_spread(mouse_pos)
 		
 func _shoot(mouse_pos: Vector2) -> void:
 	# visual flair
@@ -54,7 +54,25 @@ func _shoot(mouse_pos: Vector2) -> void:
 	
 	fired.emit()
 	delay_timer.start()
+	
+func _shoot_spread(mouse_pos: Vector2) -> void:
+	# visual flair
+	casing_particles.emitting = true
+	animation_player.play("fire")
+	muzzle_flare.visible = true
+	await get_tree().create_timer(0.1).timeout
+	muzzle_flare.visible = false
+	gun_sound_player.playing = true
 
+	var deg_vals = [-5, -2, 0, 2, 5]
+	for i in deg_vals:
+		var bullet = bullet_scene.instantiate()
+		bullet.global_position = to_global(bullet_spawn_point.position)
+		bullet.initial_direction = (mouse_pos.rotated(deg_to_rad(i)) - global_position).normalized()
+		get_tree().current_scene.add_child(bullet)
+	
+	fired.emit()
+	delay_timer.start()
 
 func _on_melee_hitbox_body_entered(body: Node2D) -> void:
 	# TODO: Vary melee power (knockback) based on how much the melee weapon swung

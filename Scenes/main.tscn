@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cj57mn6h0ih3" path="res://Scenes/Valuables/FilingCabinet.tscn" id="10_d1ilt"]
 [ext_resource type="Texture2D" uid="uid://m4xuya24ttsj" path="res://Assets/crosshair.png" id="10_hptm8"]
 [ext_resource type="PackedScene" uid="uid://3xbxkdap55x8" path="res://Scenes/Valuables/Monitor.tscn" id="11_d1ilt"]
+[ext_resource type="PackedScene" uid="uid://dqln8t0sey0uf" path="res://Scenes/Valuables/Chair.tscn" id="12_6iyac"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jjvhh"]
 texture = ExtResource("1_bo1nx")
@@ -96,3 +97,12 @@ position = Vector2(332, 160)
 
 [node name="Monitor3" parent="." unique_id=144571261 instance=ExtResource("11_d1ilt")]
 position = Vector2(234, 208)
+
+[node name="Chair" parent="." unique_id=177623376 instance=ExtResource("12_6iyac")]
+position = Vector2(235, 174)
+
+[node name="Chair2" parent="." unique_id=1539241474 instance=ExtResource("12_6iyac")]
+position = Vector2(340, 176)
+
+[node name="Chair3" parent="." unique_id=1350866798 instance=ExtResource("12_6iyac")]
+position = Vector2(217, 225)

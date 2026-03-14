@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dqln8t0sey0uf"]
+
+[ext_resource type="Texture2D" uid="uid://5g8cgfa5c3fn" path="res://Assets/chair.png" id="1_4nien"]
+[ext_resource type="Script" uid="uid://dtp54afif1bb4" path="res://Scenes/Valuables/valuable_prop.gd" id="1_idxw5"]
+[ext_resource type="PackedScene" uid="uid://dachmv6iwxqfi" path="res://Scenes/Valuables/valuable_handler.tscn" id="3_qimjs"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f0emx"]
+radius = 5.0
+height = 18.0
+
+[node name="Chair" type="RigidBody2D" unique_id=177623376]
+script = ExtResource("1_idxw5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1676661203]
+texture = ExtResource("1_4nien")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=144315968]
+shape = SubResource("CapsuleShape2D_f0emx")
+
+[node name="ValuableHandler" parent="." unique_id=447044991 instance=ExtResource("3_qimjs")]
+value = 250
+mass = 20.0
+keep_upright = true

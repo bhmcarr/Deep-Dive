@@ -8,12 +8,15 @@
 size = Vector2(32, 16)
 
 [node name="Desk" type="RigidBody2D" unique_id=568491742]
+angular_damp = 100.0
 script = ExtResource("1_odae8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1855106866]
 texture = ExtResource("2_dwkq0")
 
-[node name="ValuableHandler" parent="." unique_id=447044991 instance=ExtResource("3_4jd11")]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=40111588]
 shape = SubResource("RectangleShape2D_8wm7i")
+
+[node name="ValuableHandler" parent="." unique_id=447044991 instance=ExtResource("3_4jd11")]
+mass = 100.0
+keep_upright = true
