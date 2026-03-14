@@ -10,7 +10,8 @@ var shake_strength: float = 0.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player = get_tree().current_scene.get_node("Player")
-	var gun = player.get_node("Gun")
+	var gun = get_tree().get_nodes_in_group("guns")[0] # Should only have one gun instantiated at a time
+	#var gun = player.get_node("Gun")
 	gun.fired.connect(_on_gun_fired)
 
 
@@ -25,8 +26,9 @@ func _physics_process(delta: float) -> void:
 	offset = _get_random_offset()
 	
 	
-func _on_gun_fired() -> void:
-	apply_shake()
+func _on_gun_fired(shake_screen: bool) -> void:
+	if shake_screen:
+		apply_shake()
 	
 func apply_shake() -> void:
 	shake_strength = RANDOM_SHAKE_STRENGTH

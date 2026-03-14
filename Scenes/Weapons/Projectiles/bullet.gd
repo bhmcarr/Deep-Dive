@@ -3,17 +3,17 @@ extends RigidBody2D
 @export var initial_direction: Vector2 = Vector2.ZERO
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
-var bullet_hole_scene = preload("res://Scenes/bullet_hole.tscn")
-var bullet_hit_scene = preload("res://Scenes/bullet_hit_effect.tscn")
+var bullet_hole_scene = preload("res://Scenes/Weapons/Guns/Misc/bullet_hole.tscn")
+var bullet_hit_scene = preload("res://Scenes/Weapons/Guns/Misc/bullet_hit_effect.tscn")
 @onready var bullet_hit_sound_player: AudioStreamPlayer2D = $BulletHitSoundPlayer
 
 var direction := Vector2.ZERO
-var BULLET_SPEED = 500.0
-var BULLET_POWER = 1000.00
-var BULLET_DAMAGE = 20
+
+@export var speed := 500.0
+@export var power := 1000.0
+@export var damage := 20
 
 var velocity = Vector2(250, 250)
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,7 +22,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	velocity = direction * BULLET_SPEED
+	velocity = direction * speed
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
 		# apply force if needed
@@ -32,10 +32,10 @@ func _physics_process(delta: float) -> void:
 				print("hit valuable")
 				_spawn_bullet_hit()
 				bullet_hit_sound_player.playing = true
-				body.apply_impulse(direction * BULLET_POWER)
-				body.apply_torque_impulse(BULLET_POWER)
+				body.apply_impulse(direction * power)
+				body.apply_torque_impulse(power)
 				if body.has_node("ValuableHandler"):
-					body.get_node("ValuableHandler").damage_valuable(BULLET_DAMAGE, direction, BULLET_POWER)
+					body.get_node("ValuableHandler").damage_valuable(damage, direction, power)
 		else:
 			_spawn_bullet_hole()
 		

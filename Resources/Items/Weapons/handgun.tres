@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cge3leyx361p"]
+
+[ext_resource type="Script" uid="uid://dve67gvveryjm" path="res://Resources/Items/Item.gd" id="1_xmea4"]
+
+[resource]
+script = ExtResource("1_xmea4")
+id = 2
+name = "Handgun"
+image_path = "res://Assets/handgun.png"
+value = 250
+node_path = "res://Scenes/Weapons/Guns/handgun.tscn"
+metadata/_custom_type_script = "uid://dve67gvveryjm"

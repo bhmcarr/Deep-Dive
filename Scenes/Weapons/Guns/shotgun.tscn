@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b6ijcg47oepwi"]
 
-[ext_resource type="Script" uid="uid://g1v74nviqq3" path="res://Scenes/gun.gd" id="1_0ym6k"]
+[ext_resource type="Script" uid="uid://g1v74nviqq3" path="res://Scenes/Weapons/Guns/gun.gd" id="1_0ym6k"]
 [ext_resource type="Texture2D" uid="uid://soqp1ktvu4u4" path="res://Assets/shotgun.png" id="1_u0ide"]
 [ext_resource type="Texture2D" uid="uid://b1ptnbt614d3b" path="res://Assets/shotgun_shell.png" id="3_t6ynv"]
 [ext_resource type="Texture2D" uid="uid://frgkutx38fxh" path="res://Assets/shotgun_muzzle_flare.png" id="4_k4teu"]
@@ -46,8 +46,11 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_ft2q4"]
 radius = 4.0
 
-[node name="Gun" type="Node2D" unique_id=1036185233]
+[node name="Shotgun" type="Node2D" unique_id=1036185233]
 script = ExtResource("1_0ym6k")
+bullet_damage = 10
+shake_screen = true
+shot_type = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=415800735]
 position = Vector2(16, 0)
@@ -68,7 +71,7 @@ position = Vector2(16, 0)
 emitting = false
 amount = 1
 texture = ExtResource("3_t6ynv")
-lifetime = 0.25
+lifetime = 0.5
 one_shot = true
 speed_scale = 0.75
 randomness = 0.19

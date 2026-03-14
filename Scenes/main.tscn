@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://m4xuya24ttsj" path="res://Assets/crosshair.png" id="10_hptm8"]
 [ext_resource type="PackedScene" uid="uid://3xbxkdap55x8" path="res://Scenes/Valuables/Monitor.tscn" id="11_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://dqln8t0sey0uf" path="res://Scenes/Valuables/Chair.tscn" id="12_6iyac"]
+[ext_resource type="PackedScene" uid="uid://bpvvmhibeenmp" path="res://Scenes/item_pickup.tscn" id="13_jkdf5"]
+[ext_resource type="Resource" uid="uid://cm4u438vs0cy2" path="res://Resources/Items/Weapons/shotgun.tres" id="14_wsu2k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jjvhh"]
 texture = ExtResource("1_bo1nx")
@@ -45,6 +47,8 @@ sources/0 = SubResource("TileSetAtlasSource_21xkr")
 
 [node name="Main" type="Node2D" unique_id=1052326228]
 script = ExtResource("1_8gbba")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1910242782]
 
 [node name="Background" type="ColorRect" parent="." unique_id=737646916]
 offset_right = 1896.0
@@ -106,3 +110,7 @@ position = Vector2(340, 176)
 
 [node name="Chair3" parent="." unique_id=1350866798 instance=ExtResource("12_6iyac")]
 position = Vector2(217, 225)
+
+[node name="ItemPickup" parent="." unique_id=1541507249 instance=ExtResource("13_jkdf5")]
+position = Vector2(365, 224)
+item_given = ExtResource("14_wsu2k")

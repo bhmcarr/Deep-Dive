@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cx3g3a8a2indc"]
 
 [ext_resource type="Texture2D" uid="uid://c3ov4reh52qyb" path="res://Assets/bullet_hit_spark.png" id="1_hg3pn"]
-[ext_resource type="Script" uid="uid://ia74w83wca7s" path="res://Scenes/bullet_hit_effect.gd" id="2_mq2ah"]
+[ext_resource type="Script" uid="uid://ia74w83wca7s" path="res://Scenes/Weapons/Guns/Misc/bullet_hit_effect.gd" id="2_mq2ah"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mq2ah"]
 atlas = ExtResource("1_hg3pn")

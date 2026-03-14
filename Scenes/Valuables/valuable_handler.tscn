@@ -15,6 +15,7 @@ script = ExtResource("1_j1iue")
 emitting = false
 amount = 30
 texture = ExtResource("3_sxl6t")
+lifetime = 2.0
 one_shot = true
 explosiveness = 1.0
 randomness = 1.0

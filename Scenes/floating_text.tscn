@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://cp7rnpguljs7u" path="res://Scenes/floating_text.gd" id="1_kfvxn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f3tku"]
-font_size = 8
-font_color = Color(0.9544582, 2.117753e-06, 9.62615e-07, 1)
+font_size = 12
+font_color = Color(0.99999994, 0.22953573, 0.17418528, 1)
+outline_size = 1
 
 [sub_resource type="Animation" id="Animation_kfvxn"]
 length = 0.001
