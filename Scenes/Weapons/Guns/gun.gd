@@ -16,7 +16,7 @@ extends Node2D
 @export var bullet_speed := 500.0
 @export var bullet_power := 1000.0
 @export var bullet_damage := 20
-@export var shake_screen: bool = false
+@export var shake_screen: bool
 
 enum ShotType {Single, Spread}
 @export var shot_type: ShotType = ShotType.Single

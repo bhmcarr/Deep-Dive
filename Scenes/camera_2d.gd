@@ -9,12 +9,10 @@ var shake_strength: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player = get_tree().current_scene.get_node("Player")
-	var gun = get_tree().get_nodes_in_group("guns")[0] # Should only have one gun instantiated at a time
-	#var gun = player.get_node("Gun")
-	gun.fired.connect(_on_gun_fired)
-
-
+	player = get_parent().get_node("Player")
+	player.changed_weapon.connect(_on_player_weapon_changed)
+	_connect_to_fired_signal()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	position = position.lerp(player.position, delta * 100)
@@ -38,3 +36,12 @@ func _get_random_offset() -> Vector2:
 		rand.randf_range(-shake_strength, shake_strength),
 		rand.randf_range(-shake_strength, shake_strength)
 	)
+
+func _connect_to_fired_signal():
+	var guns = get_tree().get_nodes_in_group("guns")
+	if guns.size() == 0:
+		return
+	guns[0].fired.connect(_on_gun_fired)
+	
+func _on_player_weapon_changed() -> void:
+	_connect_to_fired_signal()

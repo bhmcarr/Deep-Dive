@@ -7,6 +7,8 @@ const JUMP_VELOCITY = -400.0
 var direction: Vector2 = Vector2.ZERO
 var push_force = 5.0
 
+signal changed_weapon()
+
 func _physics_process(delta: float) -> void:
 	direction.x = Input.get_axis("move_left", "move_right")
 	position.x += direction.x * delta * SPEED
@@ -34,20 +36,21 @@ func _physics_process(delta: float) -> void:
 func _switch_weapon(inv_index: int) -> void:
 	# get selected item
 	var item_to_switch = Inventory.get_item(inv_index)
-	if item_to_switch == null || item_to_switch.type != Global.ItemType.Weapon:
+	if item_to_switch == null || item_to_switch.type != Item.ItemType.Weapon:
 		return
 	
-	# remove current gun
-	var current_gun = get_tree().get_nodes_in_group("guns")[0]
-	current_gun.queue_free()
+	# remove current weapon
+	var current_weapons = get_tree().get_nodes_in_group("guns") # TODO: make this group "weapons" not "guns"
+	if current_weapons.size() != 0:
+		current_weapons[0].queue_free()
 	
-	# replace with gun in inventory
-	var gun_scene = load(item_to_switch.node_path)
+	# replace with weapon in inventory
+	var weapon_scene = load(item_to_switch.node_path)
 	print ("Switched weapon to ", item_to_switch.name)
-	var gun = gun_scene.instantiate()
-	add_child(gun)
+	var weapon = weapon_scene.instantiate()
+	add_child(weapon)
 	
-	
+	changed_weapon.emit()
 	
 func _handle_animations() -> void:
 	if direction.x != 0 || direction.y != 0:

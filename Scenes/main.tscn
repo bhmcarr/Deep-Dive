@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://clxysgqrp7wo7" path="res://Scenes/main.gd" id="1_8gbba"]
 [ext_resource type="Texture2D" uid="uid://c7ucpwliamnki" path="res://Assets/bg_tiles.png" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://dcwafm3cxcwr5" path="res://Assets/wall_tiles.png" id="2_8gbba"]
+[ext_resource type="PackedScene" uid="uid://tbu1a65dyw0o" path="res://Scenes/UI/Hotbar.tscn" id="2_wsu2k"]
 [ext_resource type="PackedScene" uid="uid://c1xh4s8k5l3js" path="res://Scenes/player.tscn" id="4_jjvhh"]
+[ext_resource type="Resource" uid="uid://cge3leyx361p" path="res://Resources/Items/Weapons/handgun.tres" id="4_k12tt"]
 [ext_resource type="PackedScene" uid="uid://bn74ns3m2upl5" path="res://Scenes/Valuables/flower_pot.tscn" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://bysxc7u2jj6xa" path="res://Scenes/Valuables/EndTable.tscn" id="8_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://x58w1f1ppua3" path="res://Scenes/main_camera.tscn" id="9_ynf5e"]
@@ -49,6 +51,8 @@ sources/0 = SubResource("TileSetAtlasSource_21xkr")
 script = ExtResource("1_8gbba")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1910242782]
+
+[node name="Hotbar" parent="CanvasLayer" unique_id=708581803 instance=ExtResource("2_wsu2k")]
 
 [node name="Background" type="ColorRect" parent="." unique_id=737646916]
 offset_right = 1896.0
@@ -111,6 +115,10 @@ position = Vector2(340, 176)
 [node name="Chair3" parent="." unique_id=1350866798 instance=ExtResource("12_6iyac")]
 position = Vector2(217, 225)
 
-[node name="ItemPickup" parent="." unique_id=1541507249 instance=ExtResource("13_jkdf5")]
+[node name="ItemPickup" parent="." unique_id=337686182 instance=ExtResource("13_jkdf5")]
 position = Vector2(365, 224)
 item_given = ExtResource("14_wsu2k")
+
+[node name="ItemPickup2" parent="." unique_id=1541507249 instance=ExtResource("13_jkdf5")]
+position = Vector2(488, 209)
+item_given = ExtResource("4_k12tt")

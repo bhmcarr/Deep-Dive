@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://tbu1a65dyw0o"]
+
+[ext_resource type="Texture2D" uid="uid://soqp1ktvu4u4" path="res://Assets/shotgun.png" id="1_4xv20"]
+[ext_resource type="Script" uid="uid://boeqyau84o3ys" path="res://Scenes/UI/hotbar.gd" id="1_xlsws"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xlsws"]
+font_size = 8
+
+[node name="Hotbar" type="Control" unique_id=708581803]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xlsws")
+
+[node name="Panel" type="Panel" parent="." unique_id=233713048]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -48.0
+offset_right = 79.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NumberLabels" type="Control" parent="Panel" unique_id=1967065719]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="1" type="Label" parent="Panel/NumberLabels" unique_id=674514572]
+layout_mode = 0
+offset_left = -52.0
+offset_right = -40.0
+offset_bottom = 16.0
+text = "1"
+label_settings = SubResource("LabelSettings_xlsws")
+
+[node name="2" type="Label" parent="Panel/NumberLabels" unique_id=1732777336]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 16.0
+offset_bottom = 16.0
+text = "2"
+label_settings = SubResource("LabelSettings_xlsws")
+
+[node name="3" type="Label" parent="Panel/NumberLabels" unique_id=834609829]
+layout_mode = 0
+offset_left = 60.0
+offset_right = 72.0
+offset_bottom = 16.0
+text = "3"
+label_settings = SubResource("LabelSettings_xlsws")
+
+[node name="ItemSprite1" type="Sprite2D" parent="Panel" unique_id=1109510071]
+position = Vector2(23, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("1_4xv20")
+
+[node name="ItemSprite2" type="Sprite2D" parent="Panel" unique_id=933137457]
+position = Vector2(79, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("1_4xv20")
+
+[node name="ItemSprite3" type="Sprite2D" parent="Panel" unique_id=1759599614]
+position = Vector2(135, 24)
+scale = Vector2(2, 2)
+texture = ExtResource("1_4xv20")

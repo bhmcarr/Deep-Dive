@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cert4aiapmfkj"]
+
+[ext_resource type="Script" uid="uid://loa5tdwi7aav" path="res://Scripts/Singletons/inventory.gd" id="1_1fs7o"]
+
+[node name="Inventory" type="Node" unique_id=1325459903]
+script = ExtResource("1_1fs7o")
