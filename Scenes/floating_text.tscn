@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dmptplkq1ts21"]
 
 [ext_resource type="Script" uid="uid://cp7rnpguljs7u" path="res://Scenes/floating_text.gd" id="1_kfvxn"]
+[ext_resource type="FontFile" uid="uid://bt10cwdb2vykg" path="res://Assets/Fonts/Abaddon Bold.ttf" id="2_f3tku"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f3tku"]
-font_size = 12
-font_color = Color(0.99999994, 0.22953573, 0.17418528, 1)
-outline_size = 1
+font = ExtResource("2_f3tku")
+font_color = Color(0.72495675, 0.008929614, 3.85046e-07, 1)
 
 [sub_resource type="Animation" id="Animation_kfvxn"]
 length = 0.001
@@ -71,8 +71,9 @@ _data = {
 script = ExtResource("1_kfvxn")
 
 [node name="Label2D" type="Label" parent="." unique_id=336425968]
-offset_right = 42.0
-offset_bottom = 23.0
+offset_right = 63.0
+offset_bottom = 34.0
+scale = Vector2(0.5, 0.5)
 text = "-$100"
 label_settings = SubResource("LabelSettings_f3tku")
 

@@ -56,7 +56,12 @@ func _handle_animations() -> void:
 	else:
 		animated_sprite_2d.play("idle")
 		
-	if direction.x > 0:
+	#if direction.x > 0:
+		#animated_sprite_2d.flip_h = true
+	#elif direction.x < 0:
+		#animated_sprite_2d.flip_h = false
+		
+	if (position.x - get_global_mouse_position().x) < 0:
 		animated_sprite_2d.flip_h = true
-	elif direction.x < 0:
+	elif (position.x - get_global_mouse_position().x) > 0:
 		animated_sprite_2d.flip_h = false
