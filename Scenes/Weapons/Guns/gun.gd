@@ -21,7 +21,7 @@ extends Node2D
 enum ShotType {Single, Spread}
 @export var shot_type: ShotType = ShotType.Single
 
-signal fired(shake_screen: bool)
+#signal fired(shake_screen: bool)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -59,7 +59,7 @@ func _shoot(mouse_pos: Vector2) -> void:
 	
 	get_tree().current_scene.add_child(bullet)
 	
-	fired.emit(shake_screen)
+	Global.weapon_fired.emit(shake_screen)
 	delay_timer.start()
 	
 func _shoot_spread(mouse_pos: Vector2) -> void:
@@ -75,7 +75,7 @@ func _shoot_spread(mouse_pos: Vector2) -> void:
 		bullet.initial_direction = (mouse_pos.rotated(deg_to_rad(i)) - global_position).normalized()
 		get_tree().current_scene.add_child(bullet)
 	
-	fired.emit(shake_screen)
+	Global.weapon_fired.emit(shake_screen)
 	delay_timer.start()
 
 func _play_gunfire_effects() -> void:

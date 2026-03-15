@@ -7,8 +7,6 @@ const JUMP_VELOCITY = -400.0
 var direction: Vector2 = Vector2.ZERO
 var push_force = 5.0
 
-signal changed_weapon()
-
 func _physics_process(delta: float) -> void:
 	direction.x = Input.get_axis("move_left", "move_right")
 	position.x += direction.x * delta * SPEED
@@ -50,7 +48,7 @@ func _switch_weapon(inv_index: int) -> void:
 	var weapon = weapon_scene.instantiate()
 	add_child(weapon)
 	
-	changed_weapon.emit()
+	Global.weapon_changed.emit()
 	
 func _handle_animations() -> void:
 	if direction.x != 0 || direction.y != 0:

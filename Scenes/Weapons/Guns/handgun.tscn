@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://g1v74nviqq3" path="res://Scenes/Weapons/Guns/gun.gd" id="1_t6ybu"]
 [ext_resource type="Texture2D" uid="uid://bd6cdpohfmkvi" path="res://Assets/handgun.png" id="2_xwbv2"]
 [ext_resource type="Texture2D" uid="uid://frgkutx38fxh" path="res://Assets/shotgun_muzzle_flare.png" id="3_5iq0w"]
-[ext_resource type="Texture2D" uid="uid://b1ptnbt614d3b" path="res://Assets/shotgun_shell.png" id="4_vl6cq"]
+[ext_resource type="Texture2D" uid="uid://bpdhcopymxynn" path="res://Assets/hangun_casing.png" id="4_xwbv2"]
 [ext_resource type="AudioStream" uid="uid://cmnv6k3al5ucw" path="res://Assets/gunshot_10.wav" id="5_t4dbf"]
 
 [sub_resource type="Animation" id="Animation_t6ynv"]
@@ -68,7 +68,7 @@ position = Vector2(24, 0)
 position = Vector2(16, 0)
 emitting = false
 amount = 1
-texture = ExtResource("4_vl6cq")
+texture = ExtResource("4_xwbv2")
 lifetime = 0.5
 one_shot = true
 speed_scale = 0.75
