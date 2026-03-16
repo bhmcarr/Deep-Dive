@@ -15,10 +15,13 @@ func _physics_process(delta: float) -> void:
 	
 	# Handle switching weapons
 	if Input.is_action_just_pressed("item_1"):
+		Inventory.set_selected_item_index(0)
 		_switch_weapon(0)
 	if Input.is_action_just_pressed("item_2"):
+		Inventory.set_selected_item_index(1)
 		_switch_weapon(1)
 	if Input.is_action_just_pressed("item_3"):
+		Inventory.set_selected_item_index(2)
 		_switch_weapon(2)
 		
 	_handle_animations()
@@ -30,7 +33,9 @@ func _physics_process(delta: float) -> void:
 		if c.get_collider() is RigidBody2D:
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 			
-	
+
+# TODO: The logic of switching items probably needs to be pulled up into the Inventory code,
+# 		especially since we're going to have items that aren't weapons
 func _switch_weapon(inv_index: int) -> void:
 	# get selected item
 	var item_to_switch = Inventory.get_item(inv_index)

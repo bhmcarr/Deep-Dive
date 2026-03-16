@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://soqp1ktvu4u4" path="res://Assets/shotgun.png" id="1_4xv20"]
 [ext_resource type="Script" uid="uid://boeqyau84o3ys" path="res://Scenes/UI/hotbar.gd" id="1_xlsws"]
+[ext_resource type="Texture2D" uid="uid://wxlasrx00co7" path="res://Assets/hotbar_selector.png" id="2_mmfkx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xlsws"]
 font_size = 8
@@ -27,6 +28,11 @@ offset_top = -48.0
 offset_right = 79.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="HotbarSelector" type="Sprite2D" parent="Panel" unique_id=1586977076]
+position = Vector2(23, 24)
+scale = Vector2(3, 3)
+texture = ExtResource("2_mmfkx")
 
 [node name="NumberLabels" type="Control" parent="Panel" unique_id=1967065719]
 layout_mode = 1

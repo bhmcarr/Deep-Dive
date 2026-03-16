@@ -2,9 +2,11 @@ extends Node
 
 @export var current: Array[Item] = []
 var SIZE_LIMIT = 3
+var selected_item_index: int = 0
 
 signal item_added(new_item: Item)
 signal item_removed(index_removed: int)
+signal item_selected(new_selected_index: int)
 
 ## Gets the current held item at provided index. Returns the item resource on success, and null on fail.
 func get_item(item_index: int) -> Item:
@@ -33,3 +35,11 @@ func remove_item(index_to_remove: int) -> Item:
 ## Returns the current number of items in the player's inventory
 func size() -> int:
 	return current.size()
+
+## Sets the selected item index to new_index. Returns true on success and false on fail.
+func set_selected_item_index(new_index: int) -> bool:
+	if new_index >= SIZE_LIMIT:
+		return false
+	selected_item_index = new_index
+	item_selected.emit(new_index)
+	return true
