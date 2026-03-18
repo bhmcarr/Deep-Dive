@@ -10,11 +10,9 @@ signal item_selected(new_selected_index: int)
 
 ## Gets the current held item at provided index. Returns the item resource on success, and null on fail.
 func get_item(item_index: int) -> Item:
-	var element = current.get(item_index)
-	if element:
-		return element
-	else:
+	if item_index >= current.size():
 		return null
+	return current.get(item_index)
 
 ## Adds an item to current inventory. Returns true if item was added successfully or false if it was unable to be added.
 func add_item(new_item: Item) -> bool:
