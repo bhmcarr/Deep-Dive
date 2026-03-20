@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bgnbrweb7jmx"]
+
+[ext_resource type="Script" uid="uid://cupvawmnuyhu2" path="res://Scenes/Weapons/Melee/melee_weapon.gd" id="1_lcq4f"]
+[ext_resource type="Texture2D" uid="uid://cd0rhvhualai7" path="res://Assets/bat.png" id="2_a7wnb"]
+[ext_resource type="AudioStream" uid="uid://cmnv6k3al5ucw" path="res://Assets/gunshot_10.wav" id="5_mljbv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ft2q4"]
+radius = 4.0
+
+[node name="BaseballBat" type="Node2D" unique_id=1036185233]
+script = ExtResource("1_lcq4f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=415800735]
+position = Vector2(16, 0)
+rotation = 1.5707964
+texture = ExtResource("2_a7wnb")
+flip_h = true
+
+[node name="MeleeSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=585076669]
+stream = ExtResource("5_mljbv")
+volume_db = 8.715
+pitch_scale = 0.75
+
+[node name="MeleeHitbox" type="Area2D" parent="." unique_id=182351211]
+collision_layer = 0
+collision_mask = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeHitbox" unique_id=409902660]
+position = Vector2(24, 0)
+shape = SubResource("CircleShape2D_ft2q4")
+
+[connection signal="body_entered" from="MeleeHitbox" to="." method="_on_melee_hitbox_body_entered"]

@@ -49,6 +49,7 @@ radius = 4.0
 [node name="Handgun" type="Node2D" unique_id=1036185233]
 script = ExtResource("1_t6ybu")
 delay = 0.1
+max_ammo = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=415800735]
 position = Vector2(16, 0)

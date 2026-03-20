@@ -68,6 +68,43 @@ offset_bottom = 16.0
 text = "3"
 label_settings = SubResource("LabelSettings_xlsws")
 
+[node name="ChargeLabels" type="Control" parent="Panel" unique_id=216734987]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="1" type="Label" parent="Panel/ChargeLabels" unique_id=109933823]
+z_index = 20
+layout_mode = 0
+offset_left = -44.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = 48.0
+label_settings = SubResource("LabelSettings_xlsws")
+
+[node name="2" type="Label" parent="Panel/ChargeLabels" unique_id=1287844609]
+z_index = 20
+layout_mode = 0
+offset_left = 12.0
+offset_top = 32.0
+offset_right = 24.0
+offset_bottom = 48.0
+label_settings = SubResource("LabelSettings_xlsws")
+
+[node name="3" type="Label" parent="Panel/ChargeLabels" unique_id=1209302884]
+z_index = 20
+layout_mode = 0
+offset_left = 68.0
+offset_top = 32.0
+offset_right = 80.0
+offset_bottom = 48.0
+label_settings = SubResource("LabelSettings_xlsws")
+
 [node name="ItemSprite1" type="Sprite2D" parent="Panel" unique_id=1109510071]
 position = Vector2(23, 24)
 scale = Vector2(2, 2)

@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://3xbxkdap55x8" path="res://Scenes/Valuables/Monitor.tscn" id="11_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://dqln8t0sey0uf" path="res://Scenes/Valuables/Chair.tscn" id="12_6iyac"]
 [ext_resource type="PackedScene" uid="uid://bpvvmhibeenmp" path="res://Scenes/item_pickup.tscn" id="13_jkdf5"]
-[ext_resource type="Resource" uid="uid://cm4u438vs0cy2" path="res://Resources/Items/Weapons/shotgun.tres" id="14_wsu2k"]
+[ext_resource type="Resource" uid="uid://drmql85w2oti4" path="res://Resources/Items/Weapons/baseball_bat.tres" id="15_k12tt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jjvhh"]
 texture = ExtResource("1_bo1nx")
@@ -117,8 +117,13 @@ position = Vector2(217, 225)
 
 [node name="ItemPickup" parent="." unique_id=337686182 instance=ExtResource("13_jkdf5")]
 position = Vector2(365, 224)
-item_given = ExtResource("14_wsu2k")
+item_given = ExtResource("15_k12tt")
 
-[node name="ItemPickup2" parent="." unique_id=1541507249 instance=ExtResource("13_jkdf5")]
+[node name="ItemPickup3" parent="." unique_id=1541507249 instance=ExtResource("13_jkdf5")]
+position = Vector2(337, 238)
+item_given = ExtResource("4_k12tt")
+metadata/_edit_group_ = true
+
+[node name="ItemPickup2" parent="." unique_id=1950937967 instance=ExtResource("13_jkdf5")]
 position = Vector2(488, 209)
 item_given = ExtResource("4_k12tt")

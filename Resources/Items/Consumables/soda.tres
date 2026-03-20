@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://iwvh7gd24bcg"]
+
+[ext_resource type="Script" uid="uid://dve67gvveryjm" path="res://Resources/Items/Item.gd" id="1_n1wee"]
+
+[resource]
+script = ExtResource("1_n1wee")
+id = 3
+name = "Soda"
+image_path = "res://Assets/soda_1.png"
+value = 200
+type = 1
+metadata/_custom_type_script = "uid://dve67gvveryjm"

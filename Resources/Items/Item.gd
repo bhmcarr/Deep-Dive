@@ -1,7 +1,7 @@
 class_name Item
 extends Resource
 
-enum ItemType { Weapon, Consumable }
+enum ItemType { RangedWeapon, MeleeWeapon, Consumable, Placeholder }
 
 @export var id: int
 @export var name: String
@@ -9,6 +9,7 @@ enum ItemType { Weapon, Consumable }
 @export var value: int
 @export var node_path: String
 @export var type: ItemType
+@export var charges: int
 
 # TODO: Why don't we need this again?
 #func _init(

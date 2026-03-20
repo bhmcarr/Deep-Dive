@@ -49,6 +49,8 @@ func _break_valuable() -> void:
 	var color: Color = image.get_pixelv(center_coords)
 	
 	sprite_2d.visible = false
+	# disable parent collision
+	get_parent().get_node("CollisionShape2D").disabled = true
 	
 	break_particles.color = color
 	break_particles.emitting = true

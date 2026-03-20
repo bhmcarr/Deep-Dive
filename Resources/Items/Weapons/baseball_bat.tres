@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://drmql85w2oti4"]
+
+[ext_resource type="Script" uid="uid://dve67gvveryjm" path="res://Resources/Items/Item.gd" id="1_mhwop"]
+
+[resource]
+script = ExtResource("1_mhwop")
+id = 2
+name = "Baseball Bat"
+image_path = "res://Assets/bat.png"
+value = 500
+node_path = "res://Scenes/Weapons/Melee/baseball_bat.tscn"
+type = 1
+charges = 100
+metadata/_custom_type_script = "uid://dve67gvveryjm"

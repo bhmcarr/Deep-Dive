@@ -9,4 +9,5 @@ name = "Handgun"
 image_path = "res://Assets/handgun.png"
 value = 250
 node_path = "res://Scenes/Weapons/Guns/handgun.tscn"
+charges = 25
 metadata/_custom_type_script = "uid://dve67gvveryjm"

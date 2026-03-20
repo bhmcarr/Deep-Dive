@@ -48,6 +48,7 @@ radius = 4.0
 
 [node name="Shotgun" type="Node2D" unique_id=1036185233]
 script = ExtResource("1_0ym6k")
+bullet_power = 500.0
 bullet_damage = 10
 shake_screen = true
 shot_type = 1

@@ -14,15 +14,16 @@ func _physics_process(delta: float) -> void:
 	position.y += direction.y * delta * SPEED
 	
 	# Handle switching weapons
+	var prev_index = Inventory.selected_item_index
 	if Input.is_action_just_pressed("item_1"):
 		Inventory.set_selected_item_index(0)
-		_switch_weapon(0)
+		_switch_weapon(0, prev_index)
 	if Input.is_action_just_pressed("item_2"):
 		Inventory.set_selected_item_index(1)
-		_switch_weapon(1)
+		_switch_weapon(1, prev_index)
 	if Input.is_action_just_pressed("item_3"):
 		Inventory.set_selected_item_index(2)
-		_switch_weapon(2)
+		_switch_weapon(2, prev_index)
 		
 	_handle_animations()
 	move_and_slide()
@@ -34,19 +35,20 @@ func _physics_process(delta: float) -> void:
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 			
 
-# TODO: The logic of switching items probably needs to be pulled up into the Inventory code,
-# 		especially since we're going to have items that aren't weapons
-func _switch_weapon(inv_index: int) -> void:
+func _switch_weapon(inv_index: int, previous_index: int) -> void:
 	# get selected item
 	var item_to_switch = Inventory.get_item(inv_index)
-	if item_to_switch == null || item_to_switch.type != Item.ItemType.Weapon:
-		return
 	
 	# remove current weapon
-	var current_weapons = get_tree().get_nodes_in_group("guns") # TODO: make this group "weapons" not "guns"
+	var current_weapons = get_tree().get_nodes_in_group("weapons")
 	if current_weapons.size() != 0:
+		if Inventory.current[previous_index].charges == 0:
+			Inventory.remove_item(previous_index)
 		current_weapons[0].queue_free()
-	
+
+	if item_to_switch == null || item_to_switch.type == Item.ItemType.Placeholder:
+		return
+
 	# replace with weapon in inventory
 	var weapon_scene = load(item_to_switch.node_path)
 	print ("Switched weapon to ", item_to_switch.name)
@@ -60,12 +62,7 @@ func _handle_animations() -> void:
 		animated_sprite_2d.play("walk")
 	else:
 		animated_sprite_2d.play("idle")
-		
-	#if direction.x > 0:
-		#animated_sprite_2d.flip_h = true
-	#elif direction.x < 0:
-		#animated_sprite_2d.flip_h = false
-		
+	
 	if (position.x - get_global_mouse_position().x) < 0:
 		animated_sprite_2d.flip_h = true
 	elif (position.x - get_global_mouse_position().x) > 0:
