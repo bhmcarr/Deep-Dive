@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://dmptplkq1ts21"]
 
 [ext_resource type="Script" uid="uid://cp7rnpguljs7u" path="res://Scenes/floating_text.gd" id="1_kfvxn"]
-[ext_resource type="FontFile" uid="uid://bt10cwdb2vykg" path="res://Assets/Fonts/Abaddon Bold.ttf" id="2_f3tku"]
+[ext_resource type="FontFile" uid="uid://b3i1svnpvsxm1" path="res://Assets/Fonts/Ignore 17.ttf" id="2_f3tku"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f3tku"]
 font = ExtResource("2_f3tku")
-font_color = Color(0.72495675, 0.008929614, 3.85046e-07, 1)
+font_size = 24
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_kfvxn"]
 length = 0.001

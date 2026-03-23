@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dihrmugnmnyqo"]
+
+[ext_resource type="Script" uid="uid://7gbd60yck6" path="res://Scenes/UI/status_indicators.gd" id="1_q7p4m"]
+[ext_resource type="Texture2D" uid="uid://dwkii6opumvrv" path="res://Assets/heart.png" id="2_ju0m1"]
+[ext_resource type="FontFile" uid="uid://b3i1svnpvsxm1" path="res://Assets/Fonts/Ignore 17.ttf" id="3_vybv3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ju0m1"]
+font = ExtResource("3_vybv3")
+font_size = 24
+font_color = Color(0.7058824, 0.1254902, 0.16470589, 1)
+
+[node name="StatusIndicators" type="Control" unique_id=903082211]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q7p4m")
+
+[node name="HP2" type="Control" parent="." unique_id=733812268]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="HP2" unique_id=954306819]
+position = Vector2(12, 14)
+texture = ExtResource("2_ju0m1")
+
+[node name="HPLabel" type="Label" parent="HP2" unique_id=1960638740]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 1.0
+offset_right = 64.0
+offset_bottom = 24.0
+text = "100"
+label_settings = SubResource("LabelSettings_ju0m1")

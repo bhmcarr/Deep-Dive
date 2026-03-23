@@ -4,6 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://d0b6pqcqfbdr" path="res://Scenes/floating_text_emitter.tscn" id="2_2f5j2"]
 [ext_resource type="Texture2D" uid="uid://bhxht2sr6mvel" path="res://Assets/valuable_shard.png" id="3_sxl6t"]
 
+[sub_resource type="Gradient" id="Gradient_j1iue"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_j1iue"]
 
 [node name="ValuableHandler" type="Node2D" unique_id=447044991]
@@ -32,6 +35,7 @@ damping_min = 92.485
 damping_max = 98.844
 scale_amount_min = 0.25
 scale_amount_max = 0.5
+color_ramp = SubResource("Gradient_j1iue")
 
 [node name="NearbyValuableHitbox" type="Area2D" parent="." unique_id=1623883445]
 collision_layer = 0

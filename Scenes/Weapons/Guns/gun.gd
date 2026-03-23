@@ -26,7 +26,7 @@ enum ShotType {Single, Spread}
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	delay_timer.wait_time = delay
-	add_to_group("weapons")
+	add_to_group("held_items")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

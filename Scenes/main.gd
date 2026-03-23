@@ -6,10 +6,7 @@ extends Node2D
 func _ready() -> void:
 	# hide the mouse cursor on gmae load
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-	
-	# TODO: Remove me when done testing inventory
-	#print("Added Item: ", Inventory.add_item(load("res://Resources/Items/Weapons/handgun.tres")))
-	print("Added Item: ", Inventory.add_item(load("res://Resources/Items/Weapons/shotgun.tres")))
+	Inventory.add_item(preload("uid://cge3leyx361p"))
 
 
 

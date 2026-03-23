@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c7ucpwliamnki" path="res://Assets/bg_tiles.png" id="1_bo1nx"]
 [ext_resource type="Texture2D" uid="uid://dcwafm3cxcwr5" path="res://Assets/wall_tiles.png" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://tbu1a65dyw0o" path="res://Scenes/UI/Hotbar.tscn" id="2_wsu2k"]
+[ext_resource type="PackedScene" uid="uid://dihrmugnmnyqo" path="res://Scenes/UI/status_indicators.tscn" id="3_b3802"]
 [ext_resource type="PackedScene" uid="uid://c1xh4s8k5l3js" path="res://Scenes/player.tscn" id="4_jjvhh"]
-[ext_resource type="Resource" uid="uid://cge3leyx361p" path="res://Resources/Items/Weapons/handgun.tres" id="4_k12tt"]
 [ext_resource type="PackedScene" uid="uid://bn74ns3m2upl5" path="res://Scenes/Valuables/flower_pot.tscn" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://bysxc7u2jj6xa" path="res://Scenes/Valuables/EndTable.tscn" id="8_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://x58w1f1ppua3" path="res://Scenes/main_camera.tscn" id="9_ynf5e"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://dqln8t0sey0uf" path="res://Scenes/Valuables/Chair.tscn" id="12_6iyac"]
 [ext_resource type="PackedScene" uid="uid://bpvvmhibeenmp" path="res://Scenes/item_pickup.tscn" id="13_jkdf5"]
 [ext_resource type="Resource" uid="uid://drmql85w2oti4" path="res://Resources/Items/Weapons/baseball_bat.tres" id="15_k12tt"]
+[ext_resource type="Resource" uid="uid://cm4u438vs0cy2" path="res://Resources/Items/Weapons/shotgun.tres" id="16_h1bgf"]
+[ext_resource type="Resource" uid="uid://iwvh7gd24bcg" path="res://Resources/Items/Consumables/soda.tres" id="17_h1bgf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jjvhh"]
 texture = ExtResource("1_bo1nx")
@@ -53,6 +55,8 @@ script = ExtResource("1_8gbba")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1910242782]
 
 [node name="Hotbar" parent="CanvasLayer" unique_id=708581803 instance=ExtResource("2_wsu2k")]
+
+[node name="StatusIndicators" parent="CanvasLayer" unique_id=903082211 instance=ExtResource("3_b3802")]
 
 [node name="Background" type="ColorRect" parent="." unique_id=737646916]
 offset_right = 1896.0
@@ -121,9 +125,9 @@ item_given = ExtResource("15_k12tt")
 
 [node name="ItemPickup3" parent="." unique_id=1541507249 instance=ExtResource("13_jkdf5")]
 position = Vector2(337, 238)
-item_given = ExtResource("4_k12tt")
+item_given = ExtResource("16_h1bgf")
 metadata/_edit_group_ = true
 
 [node name="ItemPickup2" parent="." unique_id=1950937967 instance=ExtResource("13_jkdf5")]
-position = Vector2(488, 209)
-item_given = ExtResource("4_k12tt")
+position = Vector2(346, 204)
+item_given = ExtResource("17_h1bgf")

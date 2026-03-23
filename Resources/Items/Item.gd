@@ -11,7 +11,6 @@ enum ItemType { RangedWeapon, MeleeWeapon, Consumable, Placeholder }
 @export var type: ItemType
 @export var charges: int
 
-# TODO: Why don't we need this again?
 #func _init(
 	#p_type: ItemType,
 	#p_id: int = 0, 
@@ -19,6 +18,8 @@ enum ItemType { RangedWeapon, MeleeWeapon, Consumable, Placeholder }
 	#p_image_path: String = "", 
 	#p_value: int = 0, 
 	#p_node_path: String = "",
+	#type: ItemType = ItemType.Consumable,
+	#charges: int = 1
 #) -> void:
 	#id = p_id
 	#name = p_name
