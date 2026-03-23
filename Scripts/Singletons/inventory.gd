@@ -64,6 +64,10 @@ func set_selected_item_index(new_index: int) -> bool:
 func remove_charges(index: int, amount: int) -> int:
 	current[index].charges -= amount
 	charge_value_changed.emit(selected_item_index, current[index].charges)
+	# TODO - Should items be automatically removed from inventory when you hit 0 charges?
+	# Probably not.. mayble leave at 0 with a red number or indicator... hrmmm
+	#if current[index].charges <= 0:
+		#remove_item(selected_item_index)
 	return current[index].charges
 	
 ## Increments the number of charges on the item in the selected inventory index, then returns the number of remaining charges

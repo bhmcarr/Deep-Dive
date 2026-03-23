@@ -23,3 +23,5 @@ func _on_melee_hitbox_body_entered(body: Node2D) -> void:
 		body.apply_torque_impulse(melee_power)
 		if body.has_node("ValuableHandler"):
 			body.get_node("ValuableHandler").damage_valuable(melee_damage, (get_global_mouse_position() - position).normalized(),melee_power)
+		if remaining_charges <= 0:
+			queue_free()
