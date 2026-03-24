@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dmeski4kaj71h"]
+
+[ext_resource type="Script" uid="uid://dve67gvveryjm" path="res://Resources/Items/Item.gd" id="1_bktvq"]
+
+[resource]
+script = ExtResource("1_bktvq")
+name = "Lollipop"
+image_path = "res://Assets/lollipop.png"
+value = 500
+node_path = "res://Scenes/Weapons/Held Items/lollipop.tscn"
+type = 2
+charges = 1
+metadata/_custom_type_script = "uid://dve67gvveryjm"

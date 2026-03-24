@@ -1,3 +1,6 @@
 [gd_scene format=3 uid="uid://h1wgdw1ha7p0"]
 
+[ext_resource type="Script" uid="uid://cf0p26xu48jdf" path="res://Scenes/Components/has_item_use_effect.gd" id="1_4ly1b"]
+
 [node name="HasItemUseEffect" type="Node2D" unique_id=1605362317]
+script = ExtResource("1_4ly1b")

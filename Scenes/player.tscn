@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://xe3hvypagmlc" path="res://Scenes/player.gd" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://ebuhsyp85rfg" path="res://Assets/john.png" id="2_6t5aa"]
 [ext_resource type="PackedScene" uid="uid://d0b6pqcqfbdr" path="res://Scenes/floating_text_emitter.tscn" id="3_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://d22uii52cdwh1" path="res://Assets/positive_particle.png" id="4_vgqql"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
 atlas = ExtResource("2_6t5aa")
@@ -49,6 +50,10 @@ animations = [{
 radius = 4.0
 height = 16.0
 
+[sub_resource type="Gradient" id="Gradient_fkybt"]
+offsets = PackedFloat32Array(0, 0.42345276)
+colors = PackedColorArray(0.99607843, 0.98039216, 1, 0, 1, 1, 1, 1)
+
 [node name="Player" type="CharacterBody2D" unique_id=591856302]
 z_index = 20
 collision_layer = 2
@@ -66,3 +71,29 @@ frame_progress = 0.8825331
 shape = SubResource("CapsuleShape2D_cvnsp")
 
 [node name="FloatingTextEmitter" parent="." unique_id=1730230013 instance=ExtResource("3_6t5aa")]
+
+[node name="ItemUseParticleEffect" type="CPUParticles2D" parent="." unique_id=442823544]
+emitting = false
+amount = 12
+texture = ExtResource("4_vgqql")
+lifetime = 0.25
+one_shot = true
+randomness = 0.35
+emission_shape = 2
+emission_sphere_radius = 12.0
+gravity = Vector2(0, -500)
+color = Color(0.39283368, 0.7220871, 3.85046e-07, 1)
+color_ramp = SubResource("Gradient_fkybt")
+
+[node name="ItemUpgradeParticleEffect" type="CPUParticles2D" parent="." unique_id=92464375]
+emitting = false
+amount = 12
+texture = ExtResource("4_vgqql")
+lifetime = 0.25
+one_shot = true
+randomness = 0.35
+emission_shape = 2
+emission_sphere_radius = 12.0
+gravity = Vector2(0, -500)
+color = Color(0.14509805, 0.72156864, 0.9098039, 1)
+color_ramp = SubResource("Gradient_fkybt")

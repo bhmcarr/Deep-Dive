@@ -19,6 +19,7 @@ func _on_melee_hitbox_body_entered(body: Node2D) -> void:
 	# TODO: Vary melee power (knockback) based on how much the melee weapon swung
 	# You'll need a timer to update a value of how hard the weapon is currently being swung
 	if body.get_collision_layer_value(3) || body.get_collision_layer_value(5):
+		Global.weapon_fired.emit(shake_screen)
 		var remaining_charges = Inventory.remove_charges(Inventory.selected_item_index, 1)
 		body.apply_torque_impulse(melee_power)
 		if body.has_node("ValuableHandler"):

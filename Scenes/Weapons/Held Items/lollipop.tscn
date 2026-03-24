@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cc8qsutby44dl"]
+
+[ext_resource type="Script" uid="uid://cy36nxhlihrft" path="res://Scenes/Weapons/Held Items/consumable.gd" id="1_7ept6"]
+[ext_resource type="Texture2D" uid="uid://cd227nb43f2xv" path="res://Assets/lollipop.png" id="2_7ept6"]
+[ext_resource type="PackedScene" uid="uid://h1wgdw1ha7p0" path="res://Scenes/Components/HasItemUseEffect.tscn" id="4_q332m"]
+
+[node name="Lollipop" type="Node2D" unique_id=1036185233]
+script = ExtResource("1_7ept6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=415800735]
+position = Vector2(16, 0)
+texture = ExtResource("2_7ept6")
+
+[node name="ItemUseSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=585076669]
+volume_db = 8.715
+pitch_scale = 0.75
+
+[node name="HasItemUseEffect" parent="." unique_id=1605362317 instance=ExtResource("4_q332m")]
+type = 1
+stat_to_upgrade = 1
+amount_to_upgrade = 10

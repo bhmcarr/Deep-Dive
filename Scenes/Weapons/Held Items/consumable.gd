@@ -1,9 +1,6 @@
 extends Node2D
 @onready var item_use_sound_player: AudioStreamPlayer2D = $ItemUseSoundPlayer
 @onready var has_item_use_effect: Node2D = $HasItemUseEffect
-@onready var item_use_particle_effect: CPUParticles2D = $ItemUseParticleEffect
-
-@export var uses_particle_effect: bool = false
 
 func _ready() -> void:
 	add_to_group("held_items")
@@ -25,9 +22,6 @@ func _use() -> void:
 
 	if item_use_sound_player.stream != null:
 		item_use_sound_player.playing = true
-	
-	if uses_particle_effect && item_use_particle_effect != null:
-		item_use_particle_effect.emitting = true
 	
 	Inventory.remove_charges(Inventory.selected_item_index, 1)
 	has_item_use_effect.use()

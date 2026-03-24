@@ -9,6 +9,7 @@ radius = 4.0
 
 [node name="BaseballBat" type="Node2D" unique_id=1036185233]
 script = ExtResource("1_lcq4f")
+shake_screen = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=415800735]
 position = Vector2(16, 0)

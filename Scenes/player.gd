@@ -2,8 +2,9 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var floating_text_emitter: Node2D = $FloatingTextEmitter
+@onready var item_use_particle_effect: CPUParticles2D = $ItemUseParticleEffect
+@onready var item_upgrade_particle_effect: CPUParticles2D = $ItemUpgradeParticleEffect
 
-const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
 var direction: Vector2 = Vector2.ZERO
 var push_force = 5.0
@@ -11,12 +12,13 @@ var push_force = 5.0
 func _ready() -> void:
 	# connect to global health signal
 	Global.player_health_changed.connect(_on_player_health_changed)
+	Global.player_speed_changed.connect(_on_player_speed_changed)
 
 func _physics_process(delta: float) -> void:
 	direction.x = Input.get_axis("move_left", "move_right")
-	position.x += direction.x * delta * SPEED
+	position.x += direction.x * delta * Global.player_speed
 	direction.y = Input.get_axis("move_up", "move_down")
-	position.y += direction.y * delta * SPEED
+	position.y += direction.y * delta * Global.player_speed
 	
 	# Handle switching weapons
 	var prev_index = Inventory.selected_item_index
@@ -68,11 +70,15 @@ func _switch_weapon(inv_index: int, previous_index: int) -> void:
 	
 	
 func _on_player_health_changed(amount: int, did_health_decrease: bool) -> void:
+	item_use_particle_effect.emitting = true
 	if did_health_decrease:
 		floating_text_emitter.emit_text("-" + str(amount))
 	else:
 		floating_text_emitter.emit_text("+" + str(amount))
 
+func _on_player_speed_changed(new_amount: int, did_speed_decrease: bool) -> void:
+	item_upgrade_particle_effect.emitting = true
+	floating_text_emitter.emit_text("SPEED IS NOW " + str(new_amount) + "!!")
 	
 func _handle_animations() -> void:
 	if direction.x != 0 || direction.y != 0:

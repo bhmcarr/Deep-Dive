@@ -3,16 +3,9 @@
 [ext_resource type="Script" uid="uid://cy36nxhlihrft" path="res://Scenes/Weapons/Held Items/consumable.gd" id="1_vrkfi"]
 [ext_resource type="Texture2D" uid="uid://bhsn61e012cv8" path="res://Assets/soda_1.png" id="2_vrkfi"]
 [ext_resource type="PackedScene" uid="uid://h1wgdw1ha7p0" path="res://Scenes/Components/HasItemUseEffect.tscn" id="3_vrkfi"]
-[ext_resource type="Script" uid="uid://dyph0ev4l6xy0" path="res://Scenes/Components/health_recovery.gd" id="4_lscss"]
-[ext_resource type="Texture2D" uid="uid://d22uii52cdwh1" path="res://Assets/positive_particle.png" id="5_7d5c1"]
-
-[sub_resource type="Gradient" id="Gradient_fte3h"]
-offsets = PackedFloat32Array(0, 0.42345276)
-colors = PackedColorArray(0.99607843, 0.98039216, 1, 0, 1, 1, 1, 1)
 
 [node name="Soda1" type="Node2D" unique_id=1036185233]
 script = ExtResource("1_vrkfi")
-uses_particle_effect = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=415800735]
 position = Vector2(16, 0)
@@ -22,18 +15,5 @@ texture = ExtResource("2_vrkfi")
 volume_db = 8.715
 pitch_scale = 0.75
 
-[node name="ItemUseParticleEffect" type="CPUParticles2D" parent="." unique_id=712674923]
-emitting = false
-amount = 12
-texture = ExtResource("5_7d5c1")
-lifetime = 0.25
-one_shot = true
-randomness = 0.35
-emission_shape = 2
-emission_sphere_radius = 12.0
-gravity = Vector2(0, -500)
-color = Color(0.39283368, 0.7220871, 3.85046e-07, 1)
-color_ramp = SubResource("Gradient_fte3h")
-
 [node name="HasItemUseEffect" parent="." unique_id=1605362317 instance=ExtResource("3_vrkfi")]
-script = ExtResource("4_lscss")
+amount_to_upgrade = 100
