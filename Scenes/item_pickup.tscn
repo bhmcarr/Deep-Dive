@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bpvvmhibeenmp"]
 
 [ext_resource type="Script" uid="uid://c4crc65kthc41" path="res://Scenes/item_pickup.gd" id="1_14bl7"]
-[ext_resource type="Texture2D" uid="uid://bulaq8x3m7b7j" path="res://Assets/ammo_crate.png" id="1_bbo16"]
+[ext_resource type="Texture2D" uid="uid://dsyuc02ht57ox" path="res://Assets/present.png" id="2_wk703"]
 [ext_resource type="PackedScene" uid="uid://d0b6pqcqfbdr" path="res://Scenes/floating_text_emitter.tscn" id="3_wk703"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_14bl7"]
@@ -13,7 +13,7 @@ collision_mask = 2
 script = ExtResource("1_14bl7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=753336750]
-texture = ExtResource("1_bbo16")
+texture = ExtResource("2_wk703")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1855592841]
 shape = SubResource("CircleShape2D_14bl7")

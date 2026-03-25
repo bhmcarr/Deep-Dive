@@ -50,7 +50,7 @@ func _break_valuable() -> void:
 	
 	sprite_2d.visible = false
 	# disable parent collision
-	get_parent().get_node("CollisionShape2D").disabled = true
+	get_parent().get_node("CollisionShape2D").set_deferred('disabled', true)
 	
 	break_particles.color = color
 	break_particles.emitting = true

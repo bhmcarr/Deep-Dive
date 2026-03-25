@@ -9,6 +9,7 @@ radius = 5.0
 height = 18.0
 
 [node name="Chair" type="RigidBody2D" unique_id=177623376]
+linear_damp = 1.0
 script = ExtResource("1_idxw5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1676661203]

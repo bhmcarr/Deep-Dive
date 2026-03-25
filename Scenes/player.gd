@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var floating_text_emitter: Node2D = $FloatingTextEmitter
 @onready var item_use_particle_effect: CPUParticles2D = $ItemUseParticleEffect
 @onready var item_upgrade_particle_effect: CPUParticles2D = $ItemUpgradeParticleEffect
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 const JUMP_VELOCITY = -400.0
 var direction: Vector2 = Vector2.ZERO
@@ -32,21 +33,20 @@ func _physics_process(delta: float) -> void:
 		Inventory.set_selected_item_index(2)
 		_switch_weapon(2, prev_index)
 		
-	_handle_animations()
-	move_and_slide()
-	
+		
 	# TODO: This doesn't seem to work like I thought..
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
 		if c.get_collider() is RigidBody2D:
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 			
+	_handle_animations()
+	move_and_slide()
+	
+
+			
 
 func _switch_weapon(inv_index: int, previous_index: int) -> void:
-	# bail if this is not a weapon
-	#if Inventory.get_item(inv_index).type != Item.ItemType.RangedWeapon && Inventory.get_item(inv_index).type != Item.ItemType.MeleeWeapon:
-		#return
-		
 	# get selected item
 	var item_to_switch = Inventory.get_item(inv_index)
 	
@@ -75,10 +75,12 @@ func _on_player_health_changed(amount: int, did_health_decrease: bool) -> void:
 		floating_text_emitter.emit_text("-" + str(amount))
 	else:
 		floating_text_emitter.emit_text("+" + str(amount))
+		animation_player.play("recover")
 
 func _on_player_speed_changed(new_amount: int, did_speed_decrease: bool) -> void:
 	item_upgrade_particle_effect.emitting = true
-	floating_text_emitter.emit_text("SPEED IS NOW " + str(new_amount) + "!!")
+	floating_text_emitter.emit_text("SPEED UP!!")
+	animation_player.play("upgrade")
 	
 func _handle_animations() -> void:
 	if direction.x != 0 || direction.y != 0:

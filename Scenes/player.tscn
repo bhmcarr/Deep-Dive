@@ -54,6 +54,60 @@ height = 16.0
 offsets = PackedFloat32Array(0, 0.42345276)
 colors = PackedColorArray(0.99607843, 0.98039216, 1, 0, 1, 1, 1, 1)
 
+[sub_resource type="Animation" id="Animation_vgqql"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fkybt"]
+resource_name = "recover"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x3wgy"]
+resource_name = "upgrade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0.74509805, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x3wgy"]
+_data = {
+&"RESET": SubResource("Animation_vgqql"),
+&"recover": SubResource("Animation_fkybt"),
+&"upgrade": SubResource("Animation_x3wgy")
+}
+
 [node name="Player" type="CharacterBody2D" unique_id=591856302]
 z_index = 20
 collision_layer = 2
@@ -97,3 +151,6 @@ emission_sphere_radius = 12.0
 gravity = Vector2(0, -500)
 color = Color(0.14509805, 0.72156864, 0.9098039, 1)
 color_ramp = SubResource("Gradient_fkybt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=89544609]
+libraries/ = SubResource("AnimationLibrary_x3wgy")

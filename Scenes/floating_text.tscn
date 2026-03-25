@@ -70,10 +70,11 @@ _data = {
 }
 
 [node name="FloatingText" type="Node2D" unique_id=478269368]
+z_index = 50
 script = ExtResource("1_kfvxn")
 
 [node name="Label2D" type="Label" parent="." unique_id=336425968]
-offset_right = 63.0
+offset_right = 81.0
 offset_bottom = 34.0
 scale = Vector2(0.5, 0.5)
 text = "-$100"

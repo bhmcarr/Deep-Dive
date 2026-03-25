@@ -8,6 +8,7 @@
 size = Vector2(16, 28)
 
 [node name="FilingCabinet" type="RigidBody2D" unique_id=774324811]
+linear_damp = 5.0
 script = ExtResource("1_s1gjo")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=920581634]
@@ -19,5 +20,5 @@ shape = SubResource("RectangleShape2D_s1gjo")
 
 [node name="ValuableHandler" parent="." unique_id=447044991 instance=ExtResource("3_sudvq")]
 value = 500
-mass = 1000.0
+mass = 500.0
 keep_upright = true
